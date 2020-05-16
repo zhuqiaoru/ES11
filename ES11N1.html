@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function* getCourse(args){
+            yield* args.filter(i=>i.courseAttrib=='专业课');
+            yield args.find(i =>i.courseAttrib=='专业基础课');
+        }
+        let courses=[
+            {courseName:'PHP',courseAttrib:'专业课'},
+            {courseName:'javascript',courseAttrib:'专业基础课'},
+            {courseName:'html5',courseAttrib:'专业基础课'},
+            {courseName:'VUE',courseAttrib:'专业课'},
+            {courseName:'photoshop',courseAttrib:'专业基础课'},
+            {courseName:'React',courseAttrib:'专业课'}
+        ];
+        let cur=getCourse(courses);
+        for(let c of cur)
+            console.log(c);
+    </script>
+</body>
+</html>

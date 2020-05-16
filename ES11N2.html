@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Dom{
+            *getDomName(prepose,No){
+                while (true) {
+                    let arg=yield prepose+(No++);
+                    if(arg>No)No=arg;
+                    if(arg==-1){
+                        return  prepose+'000';
+                        break;
+                    }
+                }
+            }
+        }
+        let dom=new Dom;
+        let d=dom.getDomName('check','100');
+        console.log(d.next());
+        console.log(d.next());
+        console.log(d.next());
+        console.log(d.next(120));
+        console.log(d.next());
+        console.log(d.next(-1));
+        console.log(d.next());
+    </script>
+</body>
+</html>

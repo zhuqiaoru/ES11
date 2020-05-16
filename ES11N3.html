@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Employee{
+            *pay(){
+                try{
+                    yield 7345.67;
+                    yield 10200.52;
+                    yield 8040.16;
+                }
+                catch{
+                    yield '00000.00';
+                }
+            }
+        }
+        let emp=new Employee();
+        let p1=emp.pay();
+        console.log(p1.next());
+        console.log(p1.next());
+        console.log(p1.throw());
+        console.log(p1.next());
+        let p2=emp.pay();
+        let arr=Array.from(p2);
+        arr.forEach(i=>console.log(i));
+    </script>
+</body>
+</html>
